@@ -2,7 +2,7 @@ const express = require("express")
 const utils = require("./utils")
 
 const app = express()
-const port = 3000
+const port = 443
 const hostname = "0.0.0.0"
 
 app.set('views', './views')
