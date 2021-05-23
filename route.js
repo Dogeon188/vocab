@@ -31,7 +31,7 @@ routers = {
 module.exports = {
     route(app) {
         app.use((req, res, next) => {
-            utils.log("info", `HTTP v${req.httpVersion} ${req.method} ${chalk.magenta(req.url)}`)
+            utils.log(`HTTP v${req.httpVersion} ${req.method} ${chalk.magenta(req.url)}`)
             next()
         })
         app.use(express.static("./public/"))

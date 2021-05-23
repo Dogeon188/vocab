@@ -3,13 +3,11 @@ const parser = require("csv-parse")
 const chalk = require("chalk")
 
 module.exports = {
-    log(type, msg) {
-        const types = {
-            "info": chalk.green.bold("I"),
-            "error": chalk.red.bold("E")
-        }
-        if (!(type in types)) throw new Error("Invalid log type!")
-        console.log(types[type], chalk.gray(`[${new Date().toISOString()}]`), msg)
+    log(msg) {
+        console.log(chalk.green.bold("I"), chalk.gray(`[${new Date().toISOString()}]`), msg)
+    },
+    error(err) {
+        console.log(chalk.red.bold("E"), chalk.gray(`[${new Date().toISOString()}]`), err)
     },
     async getSheetSource(sheetId, gid) {
         const redirected = (await bent("https://docs.google.com", "HEAD", 307)

@@ -11,9 +11,9 @@ app.set('view engine', 'ejs')
 require("./route").route(app)
 
 app.listen(port, hostname, () => {
-    utils.log("info", `App listening at http://${hostname}:${port}`)
+    utils.log(`App listening at https://vocab.dogeon188.repl.co`)
 })
 
 process.on("uncaughtException", err => {
-    utils.log("error", err)
+    utils.error(err)
 })
