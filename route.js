@@ -6,7 +6,8 @@ const utils = require("./utils")
 routers = {
     index(req, res) {
         const content = fs.readFileSync("./contents/index.html").toString()
-        const cfg = JSON.parse(content.split("\n", 1)[0].slice(4, -4))
+        const cfg = JSON.parse(content.split("\n", 1)[0]
+            .replace("\r", "").slice(4, -4))
         cfg.body = content
         res.render('layout', cfg)
     },
@@ -21,7 +22,8 @@ routers = {
     },
     notFoundPage(req, res) {
         const content = fs.readFileSync("./source/404.html").toString()
-        const cfg = JSON.parse(content.split("\n", 1)[0].slice(4, -4))
+        const cfg = JSON.parse(content.split("\n", 1)[0]
+            .replace("\r", "").slice(4, -4))
         cfg.body = content
         res.status(404).render('layout', cfg)
     }

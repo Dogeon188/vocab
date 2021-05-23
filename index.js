@@ -3,7 +3,7 @@ const utils = require("./utils")
 
 const app = express()
 const port = 3000
-const hostname = "localhost"
+const hostname = "0.0.0.0"
 
 app.set('views', './views')
 app.set('view engine', 'ejs')
