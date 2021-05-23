@@ -1,0 +1,15 @@
+<script>
+    switchTheme = () => {
+        $(".theme-control-icon").toggle(500)
+        const h = $("html")
+        h.attr("data-theme", (h.attr("data-theme") === "light") ? "dark" : "light")
+    }
+</script>
+<header>
+    <a href="/" title="點我回首頁" class="plain-link"><i class="bi bi-house-fill"></i></a>
+    <h2>英文單字彙整</h2>
+    <div class="d-flex flex-row cur-pointer" title="切換深色/淺色模式" onclick="switchTheme()">
+        <i class="bi bi-moon-fill theme-control-icon" style="display:none"></i>
+        <i class="bi bi-sun-fill theme-control-icon"></i>
+    </div>
+</header>
