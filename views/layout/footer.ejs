@@ -1,3 +1,8 @@
 <footer class="blockquote-footer">
     <div>只是一個簡單的單字彙整 by Dogeon & 瘋狂挺腰獸</div>
 </footer>
+<script>
+    $("spoiler").click(function() {
+        $(this).attr("revealed", $(this).attr("revealed") !== "true")
+    }).attr("title", "你知道的太多了")
+</script>

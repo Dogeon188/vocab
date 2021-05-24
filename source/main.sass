@@ -1,14 +1,24 @@
-$dark: #22272e
+$black: #202225
+$dark: #35383e
 $light: #dedcd9
 $transition-time: 0.5s
+$spoiler: #1e2023
+
+@media screen and (max-width: 480px)
+  :root
+    font-size: 14px
 
 html
   &[data-theme="light"]
     --bgcolor: #{ $light }
     --fcolor: #{ $dark }
+    --hfcolor: #{ $dark }
+
   &[data-theme="dark"]
     --bgcolor: #{ $dark }
     --fcolor: #{ $light }
+    --hfcolor: #{ $black }
+
     img
       filter: brightness(0.7)
 
@@ -17,22 +27,32 @@ body
   color: var(--fcolor)
   transition: background-color #{ $transition-time }, color #{ $transition-time }
 
-.cur-pointer
-  cursor: pointer
-
 header
   display: flex
   align-items: center
   justify-content: space-between
-  background-color: var(--gray-dark)
+  background-color: var(--hfcolor)
   color: #{ $light }
   padding: .5rem
   height: 4rem
   text-align: center
+  transition: background-color 0.5s
+
   .bi
     font-size: 2rem
+
   h2
     margin: 0
+
+footer
+  background-color: var(--hfcolor)
+  color: #{ $light }
+  padding: .5rem
+  text-align: center
+  bottom: 0
+  width: 100%
+  position: absolute
+  transition: background-color 0.5s
 
 main
   padding: 1rem 1rem 4.5rem
@@ -43,6 +63,9 @@ a.plain-link
   text-decoration: none
   color: unset
 
+.cur-pointer
+  cursor: pointer
+
 h2
   margin-top: 1rem
 
@@ -52,15 +75,15 @@ hr
 img
   transition: filter #{ $transition-time }
 
-footer
-  background-color: var(--gray-dark)
-  color: #{ $light }
-  padding: .5rem
-  text-align: center
-  bottom: 0
-  width: 100%
-  position: absolute
+spoiler
+  border-radius: .25rem
+  cursor: pointer
+  transition: background-color 0.5s, color 0.5s
+  background-color: #{ $spoiler }
+  color: #{ $spoiler }
 
-@media screen and (max-width: 480px)
-  :root
-    font-size: 14px
+  &[revealed="true"]
+    background-color: #{ $black }
+    color: #{ $light }
+
+
